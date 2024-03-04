@@ -5,4 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(Lab_15 main.c
         libs/data_structures/matrix/matrix.h
-        libs/data_structures/matrix/matrix.c)
+        libs/data_structures/matrix/matrix.c
+        libs/data_structures/matrix_test/matrix_test.h
+        libs/data_structures/matrix_test/matrix_test.c)
