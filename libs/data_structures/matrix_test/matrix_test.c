@@ -1,5 +1,6 @@
 #include "matrix_test.h"
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 
 
@@ -91,7 +92,7 @@ void test_swapColumns() {
 }
 
 
-void test_insertionSortRowsMatrixByRowCriteria(){
+void test_insertionSortRowsMatrixByRowCriteria() {
     matrix m = createMatrixFromArray(
             (int[]) {
                     3, 4,
@@ -114,7 +115,7 @@ void test_insertionSortRowsMatrixByRowCriteria(){
 }
 
 
-void test_selectionSortColsMatrixByColCriteria(){
+void test_selectionSortColsMatrixByColCriteria() {
     matrix m = createMatrixFromArray(
             (int[]) {
                     4, 1,
@@ -123,7 +124,7 @@ void test_selectionSortColsMatrixByColCriteria(){
             2, 2
     );
 
-    selectionSortColsMatrixByColCriteria(m,getSum);
+    selectionSortColsMatrixByColCriteria(m, getSum);
 
     assert(m.values[0][0] == 1);
     assert(m.values[0][1] == 4);
@@ -147,18 +148,20 @@ void test_isSquareMatrix() {
 void test_areTwoMatricesEqual() {
     matrix first_m = createMatrixFromArray(
             (int[]) {
-                    1, 2,
-                    3,4,
+                    1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 9,
             },
-            2, 2
+            3, 3
     );
 
     matrix second_m = createMatrixFromArray(
             (int[]) {
-                    1, 2,
-                    3,4,
+                    1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 9,
             },
-            3, 2
+            3, 3
     );
 
     assert(areTwoMatricesEqual(&first_m, &second_m) == true);
@@ -189,7 +192,7 @@ void test_isSymmetricMatrix() {
             (int[]) {
                     1, 2, 3,
                     2, 4, 5,
-                    3, 5, 7,
+                    3, 5, 9,
             },
             3, 3
     );
@@ -200,12 +203,12 @@ void test_isSymmetricMatrix() {
 }
 
 
-void test_transposeSquareMatrix(){
+void test_transposeSquareMatrix() {
     matrix first_m = createMatrixFromArray(
             (int[]) {
                     1, 2, 3,
                     4, 5, 6,
-                    7,8,9,
+                    7, 8, 9,
             },
             3, 3
     );
@@ -214,7 +217,7 @@ void test_transposeSquareMatrix(){
             (int[]) {
                     1, 2, 3,
                     4, 5, 6,
-                    7,8,9,
+                    7, 8, 9,
             },
             3, 3
     );
@@ -222,34 +225,7 @@ void test_transposeSquareMatrix(){
     transposeSquareMatrix(&first_m);
     transposeSquareMatrix(&first_m);
 
-    assert(first_m.values == second_m.values);
-
-    freeMemMatrix(&first_m);
-    freeMemMatrix(&second_m);
-}
-
-
-void test_transposeMatrix() {
-    matrix first_m = createMatrixFromArray(
-            (int[]) {
-                    1, 2, 3,
-                    4, 5, 6,
-            },
-            2, 3
-    );
-
-    matrix second_m = createMatrixFromArray(
-            (int[]) {
-                    1, 2, 3,
-                    4, 5, 6,
-            },
-            2, 3
-    );
-
-    transposeMatrix(&first_m);
-    transposeMatrix(&first_m);
-
-    assert(first_m.values == second_m.values);
+    assert(areTwoMatricesEqual(&first_m,&second_m)==true);
 
     freeMemMatrix(&first_m);
     freeMemMatrix(&second_m);

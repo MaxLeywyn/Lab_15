@@ -29,8 +29,6 @@ void test_isSymmetricMatrix();
 
 void test_transposeSquareMatrix();
 
-void test_transposeMatrix();
-
 void test_getMinValuePos();
 
 void test_getMaxValuePos();

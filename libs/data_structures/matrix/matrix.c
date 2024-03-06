@@ -12,13 +12,13 @@ void swap(int *a, int *b) {
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
-    if(*values==NULL){
+    if (*values == NULL) {
         fprintf(stderr, "bad alloc");
         exit(1);
     }
     for (int i = 0; i < nRows; i++) {
         values[i] = (int *) malloc(sizeof(int) * nCols);
-        if(values[i]==NULL){
+        if (values[i] == NULL) {
             fprintf(stderr, "bad alloc");
             exit(1);
         }
@@ -29,7 +29,7 @@ matrix getMemMatrix(int nRows, int nCols) {
 
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
     matrix *ms = (matrix *) malloc(sizeof(matrix) * nMatrices);
-    if(ms==NULL){
+    if (ms == NULL) {
         fprintf(stderr, "bad alloc");
         exit(1);
     }
@@ -41,10 +41,10 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
 
 void freeMemMatrix(matrix *m) {
     for (int i = 0; i < m->nRows; ++i) {
-        m->values[i] = NULL;
+        free(m->values[i]);
     }
-    m->values = NULL;
     free(m->values);
+    m->values = NULL;
 
     m->nRows = 0;
     m->nCols = 0;
@@ -56,8 +56,6 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
         freeMemMatrix(&ms[i]);
         printf("\n");
     }
-    ms = NULL;
-    free(ms);
 }
 
 
@@ -170,16 +168,21 @@ bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
     if (m1->nRows != m2->nRows || m1->nCols != m2->nCols) {
         return false;
     }
-    return (memcmp(m1->values, m2->values, m1->nRows * m1->nCols * sizeof(int)) == 0);
+    for (int i = 0; i < m1->nRows; ++i) {
+        if (memcmp(m1->values[i], m2->values[i], m1->nCols * sizeof(int))!=0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 
 bool isEMatrix(matrix *m) {
     for (int i = 0; i < m->nRows; i++) {
         for (int j = 0; j < m->nCols; j++) {
-            if (j != i && m->values[i][j] != 0) {
+            if (j == i && m->values[i][j] != 1) {
                 return false;
-            } else if (m->values[i][j] != 1) {
+            } else if (j != i && m->values[i][j] != 0) {
                 return false;
             }
         }
@@ -208,17 +211,6 @@ bool isSymmetricMatrix(matrix *m) {
 void transposeSquareMatrix(matrix *m) {
     assert(m->nRows == m->nCols);
 
-    for (int i = 0; i < m->nRows; i++) {
-        for (int j = i + 1; j < m->nCols; j++) {
-            int t = m->values[i][j];
-            m->values[i][j] = m->values[j][i];
-            m->values[j][i] = t;
-        }
-    }
-}
-
-
-void transposeMatrix(matrix *m) {
     for (int i = 0; i < m->nRows; i++) {
         for (int j = i + 1; j < m->nCols; j++) {
             int t = m->values[i][j];
@@ -282,6 +274,3 @@ matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows
                 ms[k].values[i][j] = values[l++];
     return ms;
 }
-
-
-
