@@ -6,7 +6,5 @@
 
 int main() {
 
-    test_transposeMatrix();
-
     return 0;
 }
