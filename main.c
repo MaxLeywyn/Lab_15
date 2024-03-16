@@ -5,8 +5,19 @@
 
 
 int main() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    1, 2, 3,
+                    2, 4, 5,
+                    3, 5, 9,
+            },
+            3, 3
+    );
+    sortRowsByMinElement(&m);
 
-    task1();
+    outputMatrix(m);
+
+    freeMemMatrix(&m);
 
     return 0;
 }

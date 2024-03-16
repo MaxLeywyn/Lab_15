@@ -8,8 +8,14 @@
 #include <stdbool.h>
 #include <string.h>
 
+//Task 1
+void sortRowsByMinAndMaxElement(matrix *m);
 
-void task1();
+//Task 2
+void sortRowsByMinElement(matrix *m);
+
+
+
 
 
 #endif //LAB_15_MATRIX_TASKS_H

@@ -277,3 +277,4 @@ matrix *createArrayOfMatrixFromArray(const int *values, int nMatrices, int nRows
                 ms[k].values[i][j] = values[l++];
     return ms;
 }
+

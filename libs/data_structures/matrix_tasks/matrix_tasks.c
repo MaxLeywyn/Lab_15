@@ -3,33 +3,37 @@
 #include <assert.h>
 
 
-void task1(){
-    matrix test_m = createMatrixFromArray(
-            (int[]) {
-                    1, 3, 5,
-                    4, 10, 2,
-                    7,8,9,
-            },
-            3, 3
-    );
+void sortRowsByMinAndMaxElement(matrix *m) {
+    int n1 = getMaxValuePos(*m).rowIndex;
+    int n2 = getMinValuePos(*m).rowIndex;
+    swapRows(m, n1, n2);
+}
 
-    int n1 = getMaxValuePos(test_m).rowIndex;
-    int n2 = getMinValuePos(test_m).rowIndex;
-
-    swapRows(&test_m,n1,n2);
-
-    assert(test_m.values[0][0] == 4);
-    assert(test_m.values[0][1] == 10);
-    assert(test_m.values[0][2] == 2);
-    assert(test_m.values[1][0] == 1);
-    assert(test_m.values[1][1] == 3);
-    assert(test_m.values[1][2] == 5);
-
-    freeMemMatrix(&test_m);
-    freeMemMatrix(&test_m);
+int getMax(int *a, int n){
+    int max = INT_MIN;
+    for (int i = 0; i < n; ++i) {
+        if (max<a[i])
+            max=a[i];
+    }
+    return max;
 }
 
 
+void sortRowsByMinElement(matrix *m){
+    int a[m->nRows];
+
+    for (int i = 0; i < m->nRows; ++i) {
+        a[i] = getMax(m->values[i],m->nCols);
+    }
+
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = i+1; j < m->nRows; ++j) {
+            if(a[i]>=a[j]){
+                swapRows(m,i,j);
+            }
+        }
+    }
+}
 
 
 

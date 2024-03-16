@@ -191,8 +191,8 @@ void test_isSymmetricMatrix() {
     matrix m = createMatrixFromArray(
             (int[]) {
                     1, 2, 3,
-                    2, 4, 5,
                     3, 5, 9,
+                    2, 4, 5,
             },
             3, 3
     );

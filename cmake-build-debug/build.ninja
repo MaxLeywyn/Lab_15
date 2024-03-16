@@ -73,6 +73,12 @@ build CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj
   OBJECT_DIR = CMakeFiles\Lab_15.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab_15.dir\libs\data_structures\matrix_tasks
 
+build CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks_test/matrix_tasks_test.c.obj: C_COMPILER__Lab_15_unscanned_Debug F$:/Git/Lab_15/libs/data_structures/matrix_tasks_test/matrix_tasks_test.c || cmake_object_order_depends_target_Lab_15
+  DEP_FILE = CMakeFiles\Lab_15.dir\libs\data_structures\matrix_tasks_test\matrix_tasks_test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab_15.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab_15.dir\libs\data_structures\matrix_tasks_test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab_15
@@ -81,7 +87,7 @@ build CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj
 #############################################
 # Link the executable Lab_15.exe
 
-build Lab_15.exe: C_EXECUTABLE_LINKER__Lab_15_Debug CMakeFiles/Lab_15.dir/main.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix/matrix.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix_test/matrix_test.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj
+build Lab_15.exe: C_EXECUTABLE_LINKER__Lab_15_Debug CMakeFiles/Lab_15.dir/main.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix/matrix.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix_test/matrix_test.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks_test/matrix_tasks_test.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab_15.dir
