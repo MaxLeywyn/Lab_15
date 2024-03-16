@@ -14,7 +14,11 @@ void sortRowsByMinAndMaxElement(matrix *m);
 //Task 2
 void sortRowsByMinElement(matrix *m);
 
+//Task 3
+void sortColsByMinElement(matrix *m);
 
+//Task 4
+matrix mulMatrices(matrix m1, matrix m2);
 
 
 
