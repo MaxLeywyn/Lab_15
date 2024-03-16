@@ -77,7 +77,9 @@ matrix mulMatrices(matrix m1, matrix m2) {
 
 
 void getSquareOfMatrixIfSymmetric(matrix *m){
-    *m = mulMatrices(*m,*m);
+    matrix m1 = mulMatrices(*m,*m);
+    freeMemMatrix(m);
+    *m=m1;
 }
 
 //Lab_16

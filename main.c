@@ -14,18 +14,11 @@ int main() {
             3, 3
     );
 
-    matrix m2 = createMatrixFromArray(
-            (int[]) {
-                    7, 5, 1,
-                    2, 1, 2,
-                    4, 3, 4,
-            },
-            3, 3
-    );
+    getSquareOfMatrixIfSymmetric(&m1);
 
-    matrix m = mulMatrices(m1,m2);
+    outputMatrix(m1);
 
-    freeMemMatrix(&m);
+    freeMemMatrix(&m1);
 
     return 0;
 }

@@ -18,7 +18,9 @@ void sortRowsByMinElement(matrix *m);
 void sortColsByMinElement(matrix *m);
 
 //Task 4
-matrix mulMatrices(matrix m1, matrix m2);
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+//Task 5
 
 
 
