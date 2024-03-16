@@ -76,10 +76,45 @@ matrix mulMatrices(matrix m1, matrix m2) {
 }
 
 
-void getSquareOfMatrixIfSymmetric(matrix *m){
-    matrix m1 = mulMatrices(*m,*m);
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    matrix m1 = mulMatrices(*m, *m);
     freeMemMatrix(m);
-    *m=m1;
+    *m = m1;
 }
+
+
+long long getSum1(int *a, int n) {
+    long long sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum = a[i];
+    }
+    return sum;
+}
+
+
+bool isUnique(long long *a, int n) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (a[i] == a[j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix *m) {
+    long long a[m->nRows];
+    for (int i = 0; i < m->nRows; ++i) {
+        a[i] = getSum1(m->values[i], m->nCols);
+    }
+
+    if(isUnique(a,m->nCols)){
+        transposeSquareMatrix(m);
+    }
+}
+
+
 
 //Lab_16

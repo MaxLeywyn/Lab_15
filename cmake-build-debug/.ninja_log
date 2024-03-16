@@ -90,3 +90,10 @@
 1650	2639	7322967119481649	Lab_15.exe	c0d7f9fc1c74fb0e
 4	568	7322967238832578	CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj	d45873e48b1e4c99
 568	773	7322967240847195	Lab_15.exe	c0d7f9fc1c74fb0e
+52	622	7322975590396190	CMakeFiles/Lab_15.dir/libs/data_structures/matrix/matrix.c.obj	573b954601a17c85
+2	665	7322975590934745	CMakeFiles/Lab_15.dir/main.c.obj	bac67da34953328a
+52	591	7322977301438318	CMakeFiles/Lab_15.dir/libs/data_structures/matrix/matrix.c.obj	573b954601a17c85
+48	598	7322977301567976	CMakeFiles/Lab_15.dir/libs/data_structures/matrix_test/matrix_test.c.obj	edbf7cd1444091fa
+2	640	7322977302046687	CMakeFiles/Lab_15.dir/main.c.obj	bac67da34953328a
+592	1142	7322977307103451	CMakeFiles/Lab_15.dir/libs/data_structures/matrix_tasks/matrix_tasks.c.obj	d45873e48b1e4c99
+1142	1359	7322977309243148	Lab_15.exe	c0d7f9fc1c74fb0e

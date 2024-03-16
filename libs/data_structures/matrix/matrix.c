@@ -112,6 +112,7 @@ void swapColumns(matrix *m, int j1, int j2) {
 int getSum(int *a, int n) {
     int sum = 0;
     for (int i = 0; i < n; ++i) {
+
         sum += a[i];
     }
     return sum;

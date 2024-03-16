@@ -14,7 +14,7 @@ int main() {
             3, 3
     );
 
-    getSquareOfMatrixIfSymmetric(&m1);
+    transposeIfMatrixHasNotEqualSumOfRows(&m1);
 
     outputMatrix(m1);
 
