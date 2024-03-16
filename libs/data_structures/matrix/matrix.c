@@ -41,10 +41,11 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
 
 void freeMemMatrix(matrix *m) {
     for (int i = 0; i < m->nRows; ++i) {
+        m->values[i] = NULL;
         free(m->values[i]);
     }
-    free(m->values);
     m->values = NULL;
+    free(m->values);
 
     m->nRows = 0;
     m->nCols = 0;
@@ -56,6 +57,8 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
         freeMemMatrix(&ms[i]);
         printf("\n");
     }
+    ms->values = NULL;
+    free(ms->values);
 }
 
 
