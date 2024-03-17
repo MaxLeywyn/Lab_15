@@ -342,4 +342,48 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
 }
 
 
+int getMaxAbsValue(matrix m) {
+    int max = abs(m.values[0][0]);
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            if (abs(m.values[i][j]) > max) {
+                max = abs(m.values[i][j]);
+            }
+        }
+    }
+
+    return max;
+}
+
+
+int getMin(const int *a, int n){
+    int min = a[0];
+    for (int ind = 1; ind < n; ind++){
+        if (a[ind] < min){
+            min = a[ind];
+        }
+    }
+
+    return min;
+}
+
+
+void printMatrixWithMinAbsNorm(matrix *ms, int nMatrix) {
+    int arrayMaxAbsNorms[nMatrix];
+
+    for (int i = 0; i < nMatrix; i++) {
+        arrayMaxAbsNorms[i] = getMaxAbsValue(ms[i]);
+    }
+
+    int min_norm = getMin(arrayMaxAbsNorms, nMatrix);
+    for (int i = 0; i < nMatrix; i++) {
+        if (arrayMaxAbsNorms[i] == min_norm) {
+            outputMatrix(ms[i]);
+        }
+    }
+}
+
+
+
+
 //Lab_16

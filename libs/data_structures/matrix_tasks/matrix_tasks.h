@@ -50,6 +50,9 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
 //Task 14
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+//Task 15
+void printMatrixWithMinAbsNorm(matrix *ms, int nMatrix);
+
 
 
 #endif //LAB_15_MATRIX_TASKS_H
