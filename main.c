@@ -7,15 +7,15 @@
 int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    0, 3, 5,
-                    0,0,0,
-                    6, 3, 5,
+                    1, 3, 5,10,
+                    2,4,9,12,
+                    6, 7, 8,11,
+                    13,15,4,14,
             },
-            3, 3
+            4, 4
     );
 
-
-    printf("%d", getNSpecialElement(m1));
+    swapPenultimateRow(m1);
 
     outputMatrix(m1);
 

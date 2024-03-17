@@ -41,6 +41,12 @@ int countEqClassesByRowsSum(matrix m);
 //Task 11
 int getNSpecialElement(matrix m);
 
+//Task 12
+void swapPenultimateRow(matrix m);
+
+//Task 13
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
 
 
 
