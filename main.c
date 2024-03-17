@@ -13,9 +13,11 @@ int main() {
             },
             3, 3
     );
-    int a[3]={1,2,3};
 
-    printf("%d",getMinInArea(m1,a));
+
+    sortByDistances(m1);
+
+    outputMatrix(m1);
 
     freeMemMatrix(&m1);
 

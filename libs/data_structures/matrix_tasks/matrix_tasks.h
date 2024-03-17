@@ -32,5 +32,14 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 //Task 8
 int getMinInArea(matrix m, const int *area_array);
 
+//Task 9
+void sortByDistances(matrix m);
+
+//Task 10
+
+
+
+
+
 
 #endif //LAB_15_MATRIX_TASKS_H

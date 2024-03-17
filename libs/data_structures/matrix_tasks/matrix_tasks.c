@@ -1,6 +1,9 @@
 #include "matrix_tasks.h"
 #include <stdlib.h>
-#include <assert.h>
+#include <math.h>
+
+
+//Lab 16
 
 
 void sortRowsByMinAndMaxElement(matrix *m) {
@@ -154,7 +157,7 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 }
 
 
-int getMinInArea(matrix m,const int *area_array){
+int getMinInArea(matrix m, const int *area_array) {
     int min = INT_MAX;
     int ind_c = 0;
     int ind_r = 0;
@@ -172,6 +175,37 @@ int getMinInArea(matrix m,const int *area_array){
     return min;
 }
 
+
+float getDistance(int *a, int n) {
+    float sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += powf(a[i], 2);
+    }
+    sum = sqrtf(sum);
+    return sum;
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int)){
+    float a[m.nRows];
+    for (int i = 0; i < m.nRows; i++) {
+        a[i] = criteria(m.values[i], m.nCols);
+    }
+    for (int i = 0; i < m.nRows; i++) {
+        float t = a[i];
+        int j = i;
+        while (j > 0 && a[j - 1] > t) {
+            a[j] = a[j - 1];
+            j--;
+        }
+        a[j] = t;
+        swapRows(&m, j, i);
+    }
+}
+
+
+void sortByDistances(matrix m){
+    insertionSortRowsMatrixByRowCriteriaF(m,getDistance);
+}
 
 
 
