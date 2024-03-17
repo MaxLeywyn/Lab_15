@@ -7,7 +7,7 @@
 int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    6, 3, 5,
+                    0, 3, 5,
                     0,0,0,
                     6, 3, 5,
             },
@@ -15,7 +15,7 @@ int main() {
     );
 
 
-    printf("%d", countEqClassesByRowsSum(m1));
+    printf("%d", getNSpecialElement(m1));
 
     outputMatrix(m1);
 

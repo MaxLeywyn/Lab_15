@@ -185,7 +185,7 @@ float getDistance(int *a, int n) {
     return sum;
 }
 
-void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int)){
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
     float a[m.nRows];
     for (int i = 0; i < m.nRows; i++) {
         a[i] = criteria(m.values[i], m.nCols);
@@ -203,40 +203,67 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int
 }
 
 
-void sortByDistances(matrix m){
-    insertionSortRowsMatrixByRowCriteriaF(m,getDistance);
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 
-int comp(const void *i, const void *j){
-    return *(long long *)i - *(long long *)j;
+int comp(const void *i, const void *j) {
+    return *(long long *) i - *(long long *) j;
 }
 
 
-int countNUnique(long long *a, int n){
-    qsort(a,n, sizeof(long long int),comp);
+int countNUnique(long long *a, int n) {
+    qsort(a, n, sizeof(long long int), comp);
     int max = 0;
     int counter = 1;
     for (int i = 0; i < n; ++i) {
-        if(a[i]==a[i+1])
+        if (a[i] == a[i + 1])
             counter++;
-        else if(a[i]!=a[i+1] && counter>max){
-            max=counter;
-            counter=1;
-        }else
-            counter=1;
+        else if (a[i] != a[i + 1] && counter > max) {
+            max = counter;
+            counter = 1;
+        } else
+            counter = 1;
     }
     return max;
 }
 
 
-int countEqClassesByRowsSum(matrix m){
+int countEqClassesByRowsSum(matrix m) {
     long long a[m.nRows];
     for (int i = 0; i < m.nRows; ++i) {
-        a[i]=getSum1(m.values[i],m.nCols);
+        a[i] = getSum1(m.values[i], m.nCols);
     }
-    return countNUnique(a,m.nRows);
+    return countNUnique(a, m.nRows);
 }
+
+
+int getNSpecialElement(matrix m) {
+    int a_max_el[m.nCols];
+    int a_sum[m.nCols];
+    memcpy(a_max_el,m.values[0],sizeof(int)*m.nCols);
+    memcpy(a_sum,m.values[0],sizeof(int)*m.nCols);
+
+    for (int i = 1; i < m.nRows; ++i) {
+        for (int j = 0; j < m.nCols; ++j) {
+            if (a_max_el[j]<m.values[i][j])
+                a_max_el[j]=m.values[i][j];
+            a_sum[j]+=m.values[i][j];
+        }
+    }
+
+    int k = 0;
+
+    for (int i = 0; i < m.nCols; i++) {
+        if(a_sum[i]-a_max_el[i] < a_max_el[i])
+            k++;
+    }
+
+    return k;
+}
+
+
 
 
 //Lab_16

@@ -38,6 +38,8 @@ void sortByDistances(matrix m);
 //Task 10
 int countEqClassesByRowsSum(matrix m);
 
+//Task 11
+int getNSpecialElement(matrix m);
 
 
 
