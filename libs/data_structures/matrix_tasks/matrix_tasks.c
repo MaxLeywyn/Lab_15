@@ -71,6 +71,8 @@ matrix mulMatrices(matrix m1, matrix m2) {
             m.values[i][k] = el;
         }
     }
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
 
     return m;
 }
@@ -110,10 +112,25 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix *m) {
         a[i] = getSum1(m->values[i], m->nCols);
     }
 
-    if(isUnique(a,m->nCols)){
+    if (isUnique(a, m->nCols)) {
         transposeSquareMatrix(m);
     }
 }
+
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    transposeSquareMatrix(&m2);
+    bool n = areTwoMatricesEqual(&m1, &m2);
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+    return n;
+}
+
+
+int max(int a, int b) {
+    return a > b ? a : b;
+}
+
 
 
 

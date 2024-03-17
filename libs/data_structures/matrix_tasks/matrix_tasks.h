@@ -24,6 +24,10 @@ void getSquareOfMatrixIfSymmetric(matrix *m);
 void transposeIfMatrixHasNotEqualSumOfRows(matrix *m);
 
 //Task 6
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+//Task 7
+long long findSumOfMaxesOfPseudoDiagonal(matrix m)
 
 
 
