@@ -8,14 +8,14 @@ int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
                     6, 3, 5,
-                    0, 2, 4,
-                    0, 0, 7,
+                    0,0,0,
+                    6, 3, 5,
             },
             3, 3
     );
 
 
-    sortByDistances(m1);
+    printf("%d", countEqClassesByRowsSum(m1));
 
     outputMatrix(m1);
 

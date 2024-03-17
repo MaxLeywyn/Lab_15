@@ -208,6 +208,35 @@ void sortByDistances(matrix m){
 }
 
 
+int comp(const void *i, const void *j){
+    return *(long long *)i - *(long long *)j;
+}
+
+
+int countNUnique(long long *a, int n){
+    qsort(a,n, sizeof(long long int),comp);
+    int max = 0;
+    int counter = 1;
+    for (int i = 0; i < n; ++i) {
+        if(a[i]==a[i+1])
+            counter++;
+        else if(a[i]!=a[i+1] && counter>max){
+            max=counter;
+            counter=1;
+        }else
+            counter=1;
+    }
+    return max;
+}
+
+
+int countEqClassesByRowsSum(matrix m){
+    long long a[m.nRows];
+    for (int i = 0; i < m.nRows; ++i) {
+        a[i]=getSum1(m.values[i],m.nCols);
+    }
+    return countNUnique(a,m.nRows);
+}
 
 
 //Lab_16

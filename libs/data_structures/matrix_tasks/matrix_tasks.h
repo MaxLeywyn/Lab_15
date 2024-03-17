@@ -36,7 +36,7 @@ int getMinInArea(matrix m, const int *area_array);
 void sortByDistances(matrix m);
 
 //Task 10
-
+int countEqClassesByRowsSum(matrix m);
 
 
 
