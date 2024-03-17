@@ -131,10 +131,10 @@ long long sumMaxNumsInDiagonals(matrix m, bool is_row) {
     long long sum = 0;
     for (int i = 1; i < (is_row ? m.nRows : m.nCols); i++) {
         int maxNum = m.values[is_row ? i : 0][is_row ? 0 : i];
-        for (int i_col = (is_row ? 1 : i + 1), i_row = (is_row ? i + 1 : 1);
-             i_col < m.nCols && i_row < m.nRows; i_col++, i_row++) {
-            if (m.values[i_row][i_col] > maxNum) {
-                maxNum = m.values[i_row][i_col];
+        for (int ind_c = (is_row ? 1 : i + 1), ind_r = (is_row ? i + 1 : 1);
+             ind_c < m.nCols && ind_r < m.nRows; ind_c++, ind_r++) {
+            if (m.values[ind_r][ind_c] > maxNum) {
+                maxNum = m.values[ind_r][ind_c];
             }
         }
 
@@ -154,7 +154,23 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 }
 
 
-
+int getMinInArea(matrix m,const int *area_array){
+    int min = INT_MAX;
+    int ind_c = 0;
+    int ind_r = 0;
+    while (ind_c < m.nCols) {
+        if (area_array[ind_c] == ind_r) {
+            ind_r = 0;
+            ind_c++;
+        } else {
+            if (m.values[ind_r][ind_c] < min) {
+                min = m.values[ind_r][ind_c];
+            }
+            ind_r++;
+        }
+    }
+    return min;
+}
 
 
 

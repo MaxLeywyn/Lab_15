@@ -7,14 +7,15 @@
 int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    1, 0, 0,
-                    0, 2, 0,
+                    6, 3, 5,
+                    0, 2, 4,
                     0, 0, 7,
             },
             3, 3
     );
+    int a[3]={1,2,3};
 
-    printf("%lld",findSumOfMaxesOfPseudoDiagonal(m1));
+    printf("%d",getMinInArea(m1,a));
 
     freeMemMatrix(&m1);
 

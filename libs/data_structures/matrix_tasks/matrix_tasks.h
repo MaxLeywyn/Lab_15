@@ -30,7 +30,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 //Task 8
-
+int getMinInArea(matrix m, const int *area_array);
 
 
 #endif //LAB_15_MATRIX_TASKS_H
