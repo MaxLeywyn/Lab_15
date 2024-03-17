@@ -7,16 +7,14 @@
 int main() {
     matrix m1 = createMatrixFromArray(
             (int[]) {
-                    1, 2, 1,
-                    4, 2, 2,
-                    0, 1, 7,
+                    1, 0, 0,
+                    0, 2, 0,
+                    0, 0, 7,
             },
             3, 3
     );
 
-    transposeIfMatrixHasNotEqualSumOfRows(&m1);
-
-    outputMatrix(m1);
+    printf("%lld",findSumOfMaxesOfPseudoDiagonal(m1));
 
     freeMemMatrix(&m1);
 

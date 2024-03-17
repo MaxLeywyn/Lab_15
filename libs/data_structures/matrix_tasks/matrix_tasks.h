@@ -27,7 +27,9 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix *m);
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
 //Task 7
-long long findSumOfMaxesOfPseudoDiagonal(matrix m)
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
+//Task 8
 
 
 
