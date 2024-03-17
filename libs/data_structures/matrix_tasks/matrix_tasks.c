@@ -296,6 +296,7 @@ bool hasAllNonDescendingRows(matrix m){
     return true;
 }
 
+
 int countNonDescendingRowsMatrices(matrix *ms, int nMatrix){
     int k = 0;
     for (int i = 0; i < nMatrix; ++i) {
@@ -306,6 +307,39 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix){
 }
 
 
+int countValues(const int *a, int n, int value){
+    int k = 0;
+    for (int i = 0; i < n; ++i) {
+        if(a[i]==value)
+            k++;
+    }
+    return k;
+}
+
+
+int countZeroRows(matrix m){
+    int k = 0;
+    for (int i = 0; i < m.nRows; ++i) {
+        if(countValues(m.values[i],m.nCols,0)==m.nCols)
+            k++;
+    }
+    return k;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
+    int max_0 = 0;
+    int a[nMatrix];
+    for (int i = 0; i < nMatrix; ++i) {
+        a[i]=countZeroRows(ms[i]);
+        if(max_0<a[i])
+            max_0=a[i];
+    }
+
+    for (int i = 0; i < nMatrix; ++i) {
+        if(a[i]==max_0)
+            outputMatrix(ms[i]);
+    }
+}
 
 
 //Lab_16
