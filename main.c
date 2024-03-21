@@ -7,6 +7,7 @@
 
 int main() {
 
+    task_13_Test();
     
     return 0;
 }

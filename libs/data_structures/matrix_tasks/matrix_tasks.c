@@ -1,6 +1,7 @@
 #include "matrix_tasks.h"
 #include <stdlib.h>
 #include <math.h>
+#include "assert.h"
 
 
 //Lab 16
@@ -82,6 +83,7 @@ matrix mulMatrices(matrix m1, matrix m2) {
 
 
 void getSquareOfMatrixIfSymmetric(matrix *m) {
+    assert(isSymmetricMatrix(m)==1);
     matrix m1 = mulMatrices(*m, *m);
     freeMemMatrix(m);
     *m = m1;
@@ -115,7 +117,7 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix *m) {
         a[i] = getSum1(m->values[i], m->nCols);
     }
 
-    if (isUnique(a, m->nCols)) {
+    if (isUnique(a, m->nRows)) {
         transposeSquareMatrix(m);
     }
 }
@@ -193,7 +195,7 @@ void swapF(float *a, float *b){
 }
 
 
-void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+void sortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
     float a[m.nRows];
     for (int i = 0; i < m.nRows; i++) {
         a[i] = criteria(m.values[i], m.nCols);
@@ -208,7 +210,7 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 
 void sortByDistances(matrix m) {
-    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+    sortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 
