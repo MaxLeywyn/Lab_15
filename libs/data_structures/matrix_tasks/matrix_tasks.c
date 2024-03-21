@@ -91,7 +91,7 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
 long long getSum1(int *a, int n) {
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum = a[i];
+        sum += a[i];
     }
     return sum;
 }
@@ -185,20 +185,24 @@ float getDistance(int *a, int n) {
     return sum;
 }
 
+
+void swapF(float *a, float *b){
+    float t = *a;
+    *a = *b;
+    *b = t;
+}
+
+
 void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
     float a[m.nRows];
     for (int i = 0; i < m.nRows; i++) {
         a[i] = criteria(m.values[i], m.nCols);
     }
     for (int i = 0; i < m.nRows; i++) {
-        float t = a[i];
-        int j = i;
-        while (j > 0 && a[j - 1] > t) {
-            a[j] = a[j - 1];
-            j--;
+        for (int j = i + 1; j < m.nRows; ++j) {
+            if (a[i] > a[j])
+                swapRows(&m, i, j);
         }
-        a[j] = t;
-        swapRows(&m, j, i);
     }
 }
 
@@ -209,12 +213,12 @@ void sortByDistances(matrix m) {
 
 
 int comp(const void *i, const void *j) {
-    return *(long long *) i - *(long long *) j;
+    return *(long long *)i - *(long long *)j;
 }
 
 
 int countNUnique(long long *a, int n) {
-    qsort(a, n, sizeof(long long int), comp);
+    qsort(a, n, sizeof(long long ), comp);
     int max = 0;
     int counter = 1;
     for (int i = 0; i < n; ++i) {

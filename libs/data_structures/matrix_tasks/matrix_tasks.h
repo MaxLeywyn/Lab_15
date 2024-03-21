@@ -54,5 +54,4 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 void printMatrixWithMinAbsNorm(matrix *ms, int nMatrix);
 
 
-
 #endif //LAB_15_MATRIX_TASKS_H

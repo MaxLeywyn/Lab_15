@@ -18,7 +18,6 @@ typedef struct position {
     int colIndex;
 } position;
 
-
 matrix getMemMatrix(int nRows, int nCols);
 
 matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols);
